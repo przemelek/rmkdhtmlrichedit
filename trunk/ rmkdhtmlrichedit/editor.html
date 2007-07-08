@@ -1,0 +1,45 @@
+<html>
+<head>
+<script>
+function setFormat(cmd,userUI,value) {
+	editor.setFormat(cmd,userUI,value);
+}
+
+function font(element) {
+	setFormat("fontname",false,element.value);
+}
+
+function size(element) {
+	setFormat("fontsize",false,element.value);
+}
+
+function format(cmd) {
+	setFormat(cmd);
+}
+
+function putImage() {
+	setFormat("insertimage",false,"http://smg.stopklatka.pl/buffy/Buffy.jpg");
+}
+</script>
+</head>
+<body bgcolor="white">
+<select onChange="font(this);">
+<option value="Arial">Arial</option>
+<option value="Courier">Courier</option>
+<option value="Times New Roman">Times New Roman</option>
+</select>
+<select onChange="size(this);">
+<option value="-2">small</option>
+<option value="+0">normal</option>
+<option value="+2">large</option>
+</select>
+<button onClick="format('bold');"><b>B</b></button>
+<button onClick="format('italic');"><i>I</i></button>
+<button onClick="format('bold');"><u>U</u></button>
+<button onClick="putImage();">Put Image</button>
+<br/>
+<iframe width="100%" height="100%" src="page.html" id="editor" name="editor"/>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<style type="text/css">
+table { background-color:red;}
+</style>
+<head>
+<script>
+window.onload = function () {
+	document.designMode = "On";
+	document.body.contentEditable = true;
+}
+
+function setFormat(cmd,userUI,value) {
+	if (!userUI) userUI=false;
+	if (!value) value=null;
+	document.execCommand(cmd,userUI,value);
+}
+</script>
+</head>
+<body>
+Wstaw tu tekst :-)
+<table border="1">
+<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
+<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
+<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
+<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
+</table>
+</body>
+</html>
