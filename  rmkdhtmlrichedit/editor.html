@@ -24,6 +24,10 @@ function format(cmd) {
 function putImage() {
 	setFormat("insertimage",false,"http://smg.stopklatka.pl/buffy/Buffy.jpg");
 }
+
+function align(dir) {
+	setFormat("justify"+dir,false,null);
+}
 </script>
 </head>
 <body bgcolor="white">
@@ -64,7 +68,12 @@ document.write(generateColorSelect("setColor"));
 </script>
 <button onClick="format('bold');"><b>B</b></button>
 <button onClick="format('italic');"><i>I</i></button>
-<button onClick="format('bold');"><u>U</u></button>
+<button onClick="format('underline');"><u>U</u></button>
+Align:
+<button onClick="align('left');">Left</button>
+<button onClick="align('right');">Right</button>
+<button onClick="align('center');">Center</button>
+<button onClick="align('full');">Justify</button>
 <button onClick="putImage();">Put Image</button>
 <br/>
 <iframe width="100%" height="100%" src="page.html" id="editor" name="editor"/>
