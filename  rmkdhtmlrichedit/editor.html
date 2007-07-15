@@ -5,12 +5,16 @@ function setFormat(cmd,userUI,value) {
 	editor.setFormat(cmd,userUI,value);
 }
 
-function font(element) {
-	setFormat("fontname",false,element.value);
+function setFontName(element) {
+	setFormat("FontName",false,element.value);
 }
 
-function size(element) {
-	setFormat("fontsize",false,element.value);
+function setFontSize(element) {
+	setFormat("FontSize",false,element.value);
+}
+
+function setColor(element) {
+	setFormat("forecolor",false,element.value);
 }
 
 function format(cmd) {
@@ -23,16 +27,41 @@ function putImage() {
 </script>
 </head>
 <body bgcolor="white">
-<select onChange="font(this);">
-<option value="Arial">Arial</option>
-<option value="Courier">Courier</option>
-<option value="Times New Roman">Times New Roman</option>
-</select>
-<select onChange="size(this);">
-<option value="-2">small</option>
-<option value="+0">normal</option>
-<option value="+2">large</option>
-</select>
+<script>
+function generateSelect(functionName,optionsList) {
+	var str = "<select onClick=\""+functionName+"(this);\">";
+	var options = optionsList.split(",");
+	for (var i=0; i<options.length; i++) {
+		var value=options[i];
+		var text=options[i];
+		if (options[i].indexOf("|")!=-1) {
+			value = options[i].split("|")[0];
+			text = options[i].split("|")[1];
+		}
+		str+="<option value=\""+value+"\">"+text+"</option>";
+	}
+	str+="</select>";
+	return str;
+}
+function generateFontSelect(functionName) {
+	var avFonts = "Arial,Courier,Times New Roman";
+	return generateSelect(functionName,avFonts);
+}
+function generateColorSelect(functionName) {
+	var avColors = "black,white,red,green,blue,yellow,gray";
+	return generateSelect(functionName,avColors);
+}
+function generateFontSizeSelect(functionName) {
+	var avSizes = "-2|smallest,-1|small,+0|normal,+1|large,+2|largest";
+	return generateSelect(functionName,avSizes);
+}
+</script>
+
+<script>
+document.write(generateFontSelect("setFontName"));
+document.write(generateFontSizeSelect("setFontSize"));
+document.write(generateColorSelect("setColor"));
+</script>
 <button onClick="format('bold');"><b>B</b></button>
 <button onClick="format('italic');"><i>I</i></button>
 <button onClick="format('bold');"><u>U</u></button>

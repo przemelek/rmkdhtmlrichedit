@@ -1,6 +1,29 @@
 <html>
 <style type="text/css">
-table { background-color:red;}
+table {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: dashed dashed dashed dashed;
+	border-color: gray gray gray gray;
+	border-collapse: collapse;
+	background-color: white;
+}
+table th {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: dashed dashed dashed dashed;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+table td {
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: dashed dashed dashed dashed;
+	border-color: gray gray gray gray;
+	background-color: white;
+	-moz-border-radius: 0px 0px 0px 0px;
+}
 </style>
 <head>
 <script>
@@ -19,10 +42,10 @@ function setFormat(cmd,userUI,value) {
 <body>
 Wstaw tu tekst :-)
 <table border="1">
-<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
-<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
-<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
-<tr>&nbsp;<td>&nbsp;<td>&nbsp;<td>&nbsp;</tr>
+<tr><td>Nr.<td>Kolumna 1<td>Kolumna 2</tr>
+<tr><td>1<td>&nbsp;<td>&nbsp;</tr>
+<tr><td>2<td>&nbsp;<td>&nbsp;</tr>
+<tr><td>3<td>&nbsp;<td>&nbsp;</tr>
 </table>
 </body>
 </html>
